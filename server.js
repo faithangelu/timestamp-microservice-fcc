@@ -36,6 +36,6 @@ app.get('/api/:date', (req, res) => {
 })
 // application.get('/api/')
 
-app.listen(3000, function() {
-    console.log("Serving 3000")
-})
+// app.listen(3000, function() {
+//     console.log("Serving 3000")
+// })
