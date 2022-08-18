@@ -38,11 +38,11 @@ app.get('/api/', (req, res) => {
 app.get('/api/:date', (req, res) => {
   var date = req.params.date;
   var dateParam = new Date(date);
-  // var unixTime = Date.parse(date);    
+  
   console.log((/^\d+$/.test(date)))
   // console.log((/^[a-zA-Z]+$/.test(date)))
   if (Object.prototype.toString.call(dateParam) === '[object Date]' && isNaN(dateParam) === 'false') {
-      res.json({ unix: dateParam.getTime(), utc: dateParam.toString()})   
+      res.json({ unix: Date.parse(date), utc: dateParam.toString()})   
   } else if ((/^\d+$/.test(date)) === true) {
     res.json({ unix: date, utc: dateParam.toString()}) 
   } else {
