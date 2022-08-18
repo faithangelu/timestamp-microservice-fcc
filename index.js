@@ -40,15 +40,15 @@ app.get('/api/:date', (req, res) => {
   var dateParam = new Date(date);
   // var unixTime = Date.parse(date);    
   
-  if (Object.prototype.toString.call(dateParam) === '[object Date]') {
-  // if (date === typeof Number) {
+  if (Object.prototype.toString.call(dateParam) === '[object Date]' && isNaN(dateParam) === 'false') {
       res.json({ unix: Date.parse(date), utc: dateParam.toString()})   
-      console.log(dateParam)             
-      console.log(typeof dateParam)             
+      console.log(date+ ":"+Object.prototype.toString.call(date))             
+      console.log(date+ ":"+isNaN(date))
+      console.log(date+ ":"+Object.prototype.toString.call(dateParam))             
+      console.log(date+ ":"+ isNaN(dateParam))  
   } else {
-      res.json({ error: "Invalid Date" })    
-      console.log(1)
-  } 
+    res.json({error: "Invalid Date"})
+  }
 })
 
 // listen for requests :)
