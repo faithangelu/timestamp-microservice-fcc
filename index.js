@@ -38,9 +38,10 @@ app.get('/api/', (req, res) => {
 app.get('/api/:date', (req, res) => {
   var date = (/^\d+$/.test(req.params.date) === true) ? parseInt(req.params.date) : req.params.date;
   var dateParam = new Date(date);
+ 
 
   
-  if (Object.prototype.toString.call(dateParam) === '[object Date]' && isNaN(dateParam) === 'false') {
+  if (Object.prototype.toString.call(dateParam) === '[object Date]' && isNaN(dateParam) === false) {
       res.json({ unix: Date.parse(dateParam), utc: dateParam.toString()})   
   } else {
     res.json({error: "Invalid Date"})
