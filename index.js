@@ -40,7 +40,8 @@ app.get('/api/:date', (req, res) => {
   var dateParam = new Date(date);
   // var unixTime = Date.parse(date);    
   
-  if (date === typeof Number) {
+  if (Object.prototype.toString.call(dateParam) === '[object Date]') {
+  // if (date === typeof Number) {
       res.json({ unix: Date.parse(date), utc: dateParam.toString()})   
       console.log(dateParam)             
       console.log(typeof dateParam)             
