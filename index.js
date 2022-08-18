@@ -42,7 +42,7 @@ app.get('/api/:date', (req, res) => {
 
   
   if (Object.prototype.toString.call(dateParam) === '[object Date]' && isNaN(dateParam) === false) {
-      res.json({ unix: Date.parse(dateParam), utc: dateParam.toString()})   
+      res.json({ unix: Date.parse(dateParam), utc: dateParam.toUTCString()})   
   } else {
     res.json({error: "Invalid Date"})
   }
