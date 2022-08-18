@@ -7,10 +7,6 @@ app.use(cors({optionsSuccessStatus: 200}));  // some legacy browsers choke on 20
 
 app.use(express.static('public'));
 
-app.listen(3000, () => {
-    console.log('Serving at port...')
-})
-
 app.get('/', (req, res) => {
     res.sendFile(__dirname+ '/views/index.html');
 })
